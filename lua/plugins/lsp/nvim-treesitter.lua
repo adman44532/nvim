@@ -4,7 +4,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     event = { 'BufReadPost', 'BufNewFile' },
-    dependencies = { 
+    dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'nvim-treesitter/nvim-treesitter-context',
     },
@@ -36,9 +36,9 @@ return {
         enable = true,
         additional_vim_regex_highlighting = { 'ruby' },
       },
-      indent = { 
-        enable = true, 
-        disable = { 'ruby' } 
+      indent = {
+        enable = true,
+        disable = { 'ruby' },
       },
       textobjects = {
         select = {
@@ -62,8 +62,8 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter-context',
-    opts = { 
-      enable = true 
+    opts = {
+      enable = true,
     },
   },
 }

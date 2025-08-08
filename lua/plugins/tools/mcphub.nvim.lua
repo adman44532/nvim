@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require 'utils'
 
 -- Return empty table if npm isn't available
 if not utils.has_npm() then
