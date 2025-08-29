@@ -14,11 +14,14 @@ return {
   version = false, -- Never set this value to "*"! Never!
   ---@module 'avante'
   ---@type avante.Config
-  opts = {
-    provider = 'copilot',
-  },
+  opts = {},
   config = function()
     require('avante').setup {
+      provider = 'copilot',
+      auto_suggestions_provider = 'copilot',
+      suggestion = {
+        debounce = 3000,
+      },
       -- system_prompt as function ensures LLM always has latest MCP server state
       -- This is evaluated for every message, even in existing chats
       system_prompt = function()
@@ -44,7 +47,20 @@ return {
       cmd = 'Copilot',
       event = 'InsertEnter',
       config = function()
-        require('copilot').setup {}
+        require('copilot').setup {
+          suggestion = {
+            enabled = true,
+            auto_trigger = true,
+            debounce = 75,
+            keymap = {
+              accept = '<C-j>', -- Accept suggestion (Ctrl-J)
+              next = '<C-n>', -- Next suggestion (Ctrl-N)
+              prev = '<C-p>', -- Previous suggestion (Ctrl-P)
+              dismiss = '<C-]>',
+            },
+          },
+          panel = { enabled = false },
+        }
       end,
     },
     {
